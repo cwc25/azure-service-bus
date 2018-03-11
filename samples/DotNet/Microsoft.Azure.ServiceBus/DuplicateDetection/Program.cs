@@ -84,7 +84,8 @@ namespace DuplicateDetection
                 // complete the received message
                 Console.WriteLine("\t<= Received a message with messageId {0}", receivedMessage.MessageId);
                 await receiver.CompleteAsync(receivedMessage.SystemProperties.LockToken);
-
+                //被peek的message locktoken属性被赋值。其他receiver根据token是否被赋值判断是否可以读取。处理这条信息的receiver在对该
+                //条信息做complete操作时要证明它是处理这条信息的receiver,所以传入token作为参数进行对比。
                 if (receivedMessageId.Equals(receivedMessage.MessageId, StringComparison.OrdinalIgnoreCase))
                 {
                     throw new Exception("Received a duplicate messsage");

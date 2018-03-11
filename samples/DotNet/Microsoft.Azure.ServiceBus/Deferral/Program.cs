@@ -40,6 +40,7 @@ namespace Deferral
 
             // wait until both tasks are done
             await Task.WhenAll(sendTask, receiveTask);
+           
         }
 
         async Task SendMessagesAsync(string connectionString, string queueName)

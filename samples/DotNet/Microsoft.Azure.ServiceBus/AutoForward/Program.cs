@@ -85,7 +85,7 @@ namespace AutoForward
             msg.TimeToLive = TimeSpan.FromSeconds(90);
             return msg;
         }
-
+      
         public static int Main(string[] args)
         {
             try

@@ -112,6 +112,7 @@ namespace TopicFilters
             // Create a receiver from the subscription client and receive all messages.
             Console.WriteLine("\nReceiving messages from subscription {0}.", subsName);
 
+
             while (true)
             {
                 var receivedMessage = await subscriptionClient.ReceiveAsync(TimeSpan.FromSeconds(10));
